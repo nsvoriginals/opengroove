@@ -33,8 +33,8 @@ export interface Song {
 export interface PlaybackState {
   currentSong: Song | null;
   isPlaying: boolean;
-  currentTime: number; // current position in seconds
-  startedAt: number; // timestamp when song started
+  currentTime: number;
+  startedAt: number;
   isPaused: boolean;
 }
 
@@ -66,7 +66,7 @@ export interface VotePayload {
 
 export interface PlaybackControlPayload {
   action: 'play' | 'pause' | 'seek' | 'next';
-  timestamp?: number; // for seek
+  timestamp?: number;
 }
 
 // Response types
