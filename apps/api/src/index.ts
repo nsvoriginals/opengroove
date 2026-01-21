@@ -7,18 +7,12 @@ import { logger } from './utils/logger.js';
 import routes from './routes/index.js';
 
 
-rClient.connect()
-  .then(() => logger.info(' Connected to Redis'))
-  .catch((err) => {
-    logger.error(' Redis connection error:', err.message);
-    logger.warn('  Server will start without Redis. Some features may not work.');
-    logger.info(' To fix: docker run -d -p 6379:6379 redis');
-  });
+
 const app = express();
 const httpServer = createServer(app);
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3001',
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
   credentials: true
 }));
 app.use(express.json());
